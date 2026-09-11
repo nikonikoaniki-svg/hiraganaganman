@@ -15,7 +15,7 @@
         <p class="eyebrow">かな入力ではやうちしょうぶ！</p>
         <h1>ひらがな<br><span>ガンマン</span></h1>
         <div class="duel-preview" aria-hidden="true">
-          <img class="preview-enemy" src="images/enemy-stand.png" alt="">
+          <img class="preview-enemy" src="images/enemy-ready.png" alt="">
         </div>
         <p class="title-sub">もじを はやく うって、<br>あいてのガンマンより さきに うとう！</p>
         <button id="startBtn" class="big-btn">ゲームをはじめる</button>
@@ -31,12 +31,26 @@
           <input id="kanaCheck" class="kana-input" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="4" aria-label="かな入力確認" />
           <div id="checkMessage" class="check-message">ここをクリックして、かな入力で「あ」とうってね</div>
         </div>
+
+        <div class="speed-card" aria-labelledby="speedTitle">
+          <div id="speedTitle" class="test-label">あいての はやさ</div>
+          <p class="speed-note">レベルが あがっても、はやさは かわりません。</p>
+          <div class="speed-grid">
+            <button type="button" class="speed-btn" data-speed="1" aria-pressed="false"><strong>1</strong><span>ゆっくり</span></button>
+            <button type="button" class="speed-btn" data-speed="2" aria-pressed="false"><strong>2</strong><span>ややゆっくり</span></button>
+            <button type="button" class="speed-btn selected" data-speed="3" aria-pressed="true"><strong>3</strong><span>ふつう</span></button>
+            <button type="button" class="speed-btn" data-speed="4" aria-pressed="false"><strong>4</strong><span>はやい</span></button>
+            <button type="button" class="speed-btn" data-speed="5" aria-pressed="false"><strong>5</strong><span>すごくはやい</span></button>
+            <button type="button" class="speed-btn unlimited" data-speed="unlimited" aria-pressed="false"><strong>∞</strong><span>じっくり練習</span><small>あいては うちません</small></button>
+          </div>
+        </div>
+
         <button id="readyBtn" class="big-btn" disabled>じゅんびOK！</button>
         <button id="skipBtn" class="text-btn">先生といっしょに設定したので、そのまま進む</button>
       </div>
     </section>
 
-    <section id="gameScreen" class="screen">
+    <section id="gameScreen" class="screen" tabindex="-1">
       <header class="hud">
         <div class="hud-item"><span>レベル</span><strong id="levelLabel">1</strong></div>
         <div class="hud-item"><span>しょうぶ</span><strong><span id="roundLabel">1</span>/5</strong></div>
@@ -55,21 +69,21 @@
           <div id="resultText" class="result-text"></div>
           <div id="playerBubble" class="bubble player-bubble">もじを うて！</div>
           <div class="input-help">かなキーを 1もじ うとう！</div>
-          <input id="gameInput" class="ghost-input" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="ゲーム入力" />
+          <input id="gameInput" class="ghost-input" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" tabindex="-1" aria-label="ゲーム入力" />
         </div>
 
         <div class="fighter enemy">
           <div id="enemyBubble" class="bubble enemy-bubble">……</div>
           <div id="enemyCowboy" class="enemy-card">
-            <img id="enemyStand" src="images/enemy-stand.png" alt="あいてのガンマン" class="enemy-img enemy-stand">
-            <img id="enemyDown" src="images/enemy-down.png" alt="たおれた あいてのガンマン" class="enemy-img enemy-down">
-            <div class="muzzle-flash"></div>
+            <img id="enemyReady" src="images/enemy-ready.png" alt="かまえる あいてのガンマン" class="enemy-img enemy-ready">
+            <img id="enemyShoot" src="images/enemy-shoot.png" alt="うつ あいてのガンマン" class="enemy-img enemy-shoot">
+            <img id="enemyDown" src="images/enemy-down.png" alt="やられた あいてのガンマン" class="enemy-img enemy-down">
             <div class="impact"></div>
           </div>
           <div class="nameplate">あいてのガンマン</div>
         </div>
       </div>
-      <button id="focusBtn" class="focus-btn">うてないときは ここをおす</button>
+      <button id="focusBtn" class="focus-btn">キーが きかないときは ここをおす</button>
     </section>
 
     <section id="stageScreen" class="screen">
